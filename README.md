@@ -1,13 +1,12 @@
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/O5O514FGIG)
 
 # Updated Xpad Linux Kernel Driver
-Driver for the Xbox/ Xbox 360/ Xbox 360 Wireless/ Xbox One Controllers
+Driver for the Xbox/ Xbox 360/ Xbox 360 Wireless
 
 This driver includes the latest changes in the upstream linux kernel and additionally carries the following staging changes:
 
 * support for more compatible devices
 * support for xbox360 class controllers, that need initialisation
-* support Guitar Hero Live xbox one controller
 
 ## Xbox One Controllers
 This driver is only used if you connect the controller via USB.
@@ -23,7 +22,7 @@ Opinion: rather get a controller that supports bluetooth.
 
 # Installing
 ```
-sudo git clone https://github.com/paroj/xpad.git /usr/src/xpad-0.4
+sudo git clone https://github.com/forkymcforkface/xpad-noone-ms /usr/src/xpad-0.4
 sudo dkms install -m xpad -v 0.4
 ```
 # Updating
