@@ -1348,14 +1348,12 @@ static void xpad_irq_in(struct urb *urb)
 	default:
 		dev_dbg(dev, "%s - nonzero urb status received: %d\n",
 			__func__, status);
-		goto exit;
+		/* fall through to resubmit anyway */
 	}
 
 #if defined(DEBUG_VERBOSE)
-	/* If you set rowsize to larger than 32 it defaults to 16?
-	 * Otherwise I would set it to XPAD_PKT_LEN                  V
-	 */
-	print_hex_dump(KERN_DEBUG, "xpad-dbg: ", DUMP_PREFIX_OFFSET, 32, 1, xpad->idata, XPAD_PKT_LEN, 0);
+	print_hex_dump(KERN_DEBUG, "xpad-dbg: ", DUMP_PREFIX_OFFSET, 32, 1,
+		       xpad->idata, XPAD_PKT_LEN, 0);
 #endif
 
 	switch (xpad->xtype) {
@@ -1372,7 +1370,6 @@ static void xpad_irq_in(struct urb *urb)
 		xpad_process_packet(xpad, 0, xpad->idata);
 	}
 
-exit:
 	retval = usb_submit_urb(urb, GFP_ATOMIC);
 	if (retval)
 		dev_err(dev, "%s - usb_submit_urb failed with result %d\n",
