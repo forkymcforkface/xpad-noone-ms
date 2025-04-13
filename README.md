@@ -8,17 +8,14 @@ This driver includes the latest changes in the upstream linux kernel and additio
 * support for more compatible devices
 * support for xbox360 class controllers, that need initialisation
 
-## Xbox One Controllers
-This driver is only used if you connect the controller via USB.
+## Xbox One Controllers and dongle 
+This driver only supports 3rd party Xbox One controllers. official Xbox one controller support must be managed by this version of xone here.
 
 **Connecting via Bluetooth**  
 If you get past the pairing issues, the controller will operate in the [generic-HID bluetooth profile](https://en.wikipedia.org/wiki/List_of_Bluetooth_profiles#Human_Interface_Device_Profile_(HID)).  
 The xpad driver will not be used.
 
-**Connecting via XBox One Wireless Adapter (WiFi)**  
-The adapter needs daemon in userspace, see: [medusalix/xow](https://github.com/medusalix/xow)  
-Opinion: rather get a controller that supports bluetooth.
-
+**Connecting via XBox One Wireless Adapter 
 
 # Installing
 ```
